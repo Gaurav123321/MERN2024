@@ -1,13 +1,12 @@
-const express=require("express");
+const express= require("express");
+const router=require("./router/auth-router.js")
 const app=express();
 
-app.get("/",(req,res)=>{
-    res.status(200).send("Welcome to my channel gaurav technical ");
-})
+app.use(express.json());//parsing json data from requests ,middleware
 
-app.get("/register",(req,res)=>{
-    res.status(200).send("Welcome to registration page ");
-})
+
+app.use("/api/auth",router)  // mount path
+
 
 
 const PORT=8000;
